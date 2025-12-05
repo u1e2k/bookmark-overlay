@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Quick Access Bookmarks",
+  "version": "1.4",
+  "permissions": [
+    "bookmarks",
+    "activeTab",
+    "history",
+    "favicon",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content-script.js"
+      ]
+    }
+  ],
+  "commands": {
+    "toggle-bookmark-overlay": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+B",
+        "mac": "Command+Shift+B"
+      },
+      "description": "ブックマークオーバーレイの表示/非表示を切り替える"
+    }
+  }
+}
